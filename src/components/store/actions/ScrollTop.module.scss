@@ -1,0 +1,14 @@
+.Sctops{
+    position: fixed;
+    z-index: 10;
+    right: 70px;
+    bottom: 50px;
+    font-size: 50px;
+    color: greenyellow;
+    transition: all 0.3s ease 0s;
+    background-color: transparent;
+    &:active{
+        color:red;
+        transform: scale(0.1);
+    }
+}

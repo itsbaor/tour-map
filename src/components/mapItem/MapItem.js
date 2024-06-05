@@ -3,7 +3,7 @@ import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { useSelector } from "react-redux";
-import CustomMarker from "./CustomMarker";
+import RoutineMachine from "./RoutineMachine";
 
 const MapItem = () => {
   let popupRef = useRef();
@@ -81,6 +81,7 @@ const MapItem = () => {
           </Marker>
         ))}
       <ResetCenterView selectPosition={listPlace} />
+      <RoutineMachine />
     </MapContainer>
   );
 };

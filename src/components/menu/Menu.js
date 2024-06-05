@@ -10,7 +10,9 @@ import { selectPlace } from "../../storeContext/action";
 import imageMarker from "../../assets/images/placeholder.png";
 
 import dataCategory from "../../assets/data/dataCategory";
-
+import destination from "../../assets/images/destination.png";
+import imageOriginal from "../../assets/images/measure-distance.png";
+import repost from "../../assets/images/repost.png";
 const cx = classNames.bind(styles);
 
 const Menu = () => {
@@ -19,6 +21,7 @@ const Menu = () => {
   const [disPlayInput, setDisPlayInput] = useState(false);
   const [dataInput, setDataInput] = useState("");
   const [listSearch, setListSearch] = useState([]);
+
   const NOMINATIM_BASE_URL = "https://nominatim.openstreetmap.org/search?";
   const handleChangeItem = (item) => {
     if (item) {
@@ -135,7 +138,76 @@ const Menu = () => {
           ))}
         </div>
 
-        <b style={{ fontSize: 20, marginTop: 24 }}>Calculate Distance</b>
+        <div className={cx("line")} />
+
+        <b
+          style={{
+            fontSize: 20,
+            display: "block",
+            marginTop: 24,
+            marginBottom: 12,
+          }}
+        >
+          Map Plan
+        </b>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            marginTop: 10,
+            gap: 24,
+          }}
+        >
+          <div style={{ display: "flex", flexDirection: "row", gap: 8 }}>
+            <img src={imageOriginal} width={40} />
+            <li>
+              <i
+                onClick={() => handleChangeItem(dataInput)}
+                style={{
+                  position: "absolute",
+                  right: 0,
+                  cursor: "pointer",
+                  backgroundColor: "#1c9e9e",
+                }}
+                className="bx bx-search btn-search"
+              ></i>
+              <input
+                type="text"
+                placeholder="Search your place..."
+                onChange={(event) => setDataInput(event.target.value)}
+              />
+              <span className={cx("tooltip")}>Search</span>
+              {/* <ul
+                style={{
+                  display: disPlayInput ? "block" : "none",
+                  marginTop: 5,
+                  backgroundColor: "#1c9e9e",
+                  position: "absolute",
+                  zIndex: "3333",
+                  width: "100%",
+                  borderRadius: 12,
+                  padding: 4,
+                  // gap: 8,
+                }}
+              >
+                {listSearch.length > 0 &&
+                  listSearch.map((item) => (
+                    <li
+                      className={cx("item-search")}
+                      onClick={() => handleGetLocation(item)}
+                    >
+                      {item.name}
+                    </li>
+                  ))}
+              </ul> */}
+            </li>
+          </div>
+          <img src={repost} width={40} />
+          <div style={{ display: "flex", flexDirection: "row", gap: 8 }}>
+            <img src={destination} width={40} />
+            <input />
+          </div>
+        </div>
 
         <li className={cx("profile")}>
           <div className={cx("profile-details")}>
